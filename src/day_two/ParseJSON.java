@@ -5,19 +5,15 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import day_one.SearchMovies;
+import day_one.ImdbApiClient;
 
 public class ParseJSON {
+	
 	public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
 		URI uri = new URI("https://fake-movie-database-api.herokuapp.com/api?s=batman");
-		String json = SearchMovies.getResponse(uri).body();
-		String fixedJson = json.substring(json.indexOf('['), json.indexOf(']') + 1);
+		String json = ImdbApiClient.getResponse(uri).body();
 		
-		ObjectMapper mapper = new ObjectMapper();
-		List<Movie> movies = mapper.readValue(fixedJson, new TypeReference<List<Movie>>() {});
+		List<Movie> movies = new ImdbMovieJsonParser(json).parse();
 		
 		movies.forEach(System.out::println);
 	}
