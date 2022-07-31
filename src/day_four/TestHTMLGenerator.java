@@ -1,19 +1,16 @@
 package day_four;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.HttpResponse;
 import java.util.List;
 
 import day_one.ImdbApiClient;
 import day_two.ImdbMovieJsonParser;
 import day_two.Movie;
-import day_two.ParseJSON;
 
 public class TestHTMLGenerator {
 	public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
