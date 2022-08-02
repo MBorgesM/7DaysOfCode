@@ -3,13 +3,15 @@ package day_two;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import day_six.Content;
+
 @JsonPropertyOrder({
     "imdbID",
     "Title",
     "Year",
     "Poster"
 })
-public class Movie {
+public class Movie implements Content {
 	@JsonProperty("imdbID")
 	private String imdbID;
 	
@@ -31,14 +33,17 @@ public class Movie {
 		this.poster = poster;
 	}
 
-	public String getImdbID() {
+	@Override
+	public String getId() {
 		return imdbID;
 	}
 
+	@Override
 	public String getTitle() {
 		return title;
 	}
 
+	@Override
 	public String getYear() {
 		return year;
 	}

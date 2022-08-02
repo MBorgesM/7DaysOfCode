@@ -25,7 +25,7 @@ public class TestHTMLGenerator {
 				file,
 				true));
 		
-		String json = ImdbApiClient.getResponse(uri).body();
+		String json = new ImdbApiClient().getBody(uri);
 		List<Movie> movies = new ImdbMovieJsonParser(json).parse();
 		
 		new HtmlGenerator(pw).generate(movies);

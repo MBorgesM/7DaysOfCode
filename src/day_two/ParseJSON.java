@@ -11,7 +11,7 @@ public class ParseJSON {
 	
 	public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
 		URI uri = new URI("https://fake-movie-database-api.herokuapp.com/api?s=batman");
-		String json = ImdbApiClient.getResponse(uri).body();
+		String json = new ImdbApiClient().getBody(uri);
 		
 		List<Movie> movies = new ImdbMovieJsonParser(json).parse();
 		

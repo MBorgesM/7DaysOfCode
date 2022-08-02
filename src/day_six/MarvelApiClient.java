@@ -1,4 +1,4 @@
-package day_one;
+package day_six;
 
 import java.io.IOException;
 import java.net.URI;
@@ -6,11 +6,9 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import day_six.APIClient;
-import day_six.Content;
-import day_two.Movie;
+import day_six.json_objects.MarvelSeries;
 
-public class ImdbApiClient implements APIClient {
+public class MarvelApiClient implements APIClient {
 	
 	@Override
 	public String getBody(URI uri) throws IOException, InterruptedException {
@@ -28,6 +26,7 @@ public class ImdbApiClient implements APIClient {
 
 	@Override
 	public Class<? extends Content> type() {
-		return Movie.class;
+		return MarvelSeries.class;
 	}
+
 }

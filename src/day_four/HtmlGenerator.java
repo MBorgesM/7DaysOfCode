@@ -42,7 +42,7 @@ public class HtmlGenerator {
 					movie.getTitle(),
 					movie.getPoster(),
 					movie.getTitle(),
-					movie.getImdbID(),
+					movie.getId(),
 					movie.getYear()));
 		}
 	}
