@@ -11,7 +11,7 @@ import day_six.Content;
     "Year",
     "Poster"
 })
-public class Movie implements Content {
+public class Movie implements Content, Comparable<Content> {
 	@JsonProperty("imdbID")
 	private String imdbID;
 	
@@ -55,5 +55,10 @@ public class Movie implements Content {
 	@Override
 	public String toString() {
 		return "Movie [imdbID=" + imdbID + ", title=" + title + ", year=" + year + ", poster=" + poster + "]";
+	}
+
+	@Override
+	public int compareTo(Content outro) {
+		return this.getYear().compareTo(outro.getYear());
 	}
 }

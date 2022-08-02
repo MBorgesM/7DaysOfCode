@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collections;
 import java.util.List;
 
 import day_one.ImdbApiClient;
@@ -27,6 +28,7 @@ public class TestHTMLGenerator {
 		
 		String json = new ImdbApiClient().getBody(uri);
 		List<Movie> movies = new ImdbMovieJsonParser(json).parse();
+		Collections.sort(movies);
 		
 		new HtmlGenerator(pw).generate(movies);
 		
